@@ -15,6 +15,7 @@ const MenuOption = styled.a`
   font-weight: 600;
   font-size: 20px;
   cursor: pointer;
+  color: #344563;
 `;
 
 const MenuButton = styled.button`
