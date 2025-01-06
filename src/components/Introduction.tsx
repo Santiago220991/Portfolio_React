@@ -3,6 +3,7 @@ import styled from "styled-components";
 import MediaIcons from "./MediaIcons";
 import Icon from "./Icon";
 import DownArrow from '../../src/assets/down_arrow_img.png'
+import {BLUE, LIGHTGREEN} from '../constants/colors'
 
 const IntroductionContainer = styled.section`
 
@@ -18,7 +19,7 @@ const IntroductionContainer = styled.section`
 `;
 
 const Title = styled.h1`
-  color: #344563;
+  color: ${BLUE};
   text-align: center;
   font-size: 40px;
   font-weight: 700;
@@ -27,7 +28,7 @@ const Title = styled.h1`
 
 const Subtitle = styled.h2`
   text-align: center;
-  color: lightgreen;
+  color: ${LIGHTGREEN};
   font-size: 40px;
   font-weight: 700;
   margin-top: 20px;

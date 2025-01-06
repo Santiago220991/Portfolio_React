@@ -3,6 +3,7 @@ import styled from "styled-components";
 import menuImage from "../../src/assets/menu_img.png";
 import quitImage from "../../src/assets/quit_img.png";
 import Icon from "./Icon";
+import {BLUE} from "../constants/colors"
 
 const HeaderContainer = styled.header<{ $isMobile?: boolean }>`
   display: flex;
@@ -16,7 +17,7 @@ const MenuOption = styled.a`
   font-weight: 600;
   font-size: 20px;
   cursor: pointer;
-  color: #344563;
+  color: ${BLUE};
 `;
 
 const MenuButton = styled.button`

@@ -4,6 +4,7 @@ import { createRoot } from "react-dom/client";
 import Header from "./components/Header.tsx";
 import styled from "styled-components";
 import Introduction from "./components/Introduction.tsx";
+import Projects from "./components/Projects.tsx";
 
 const MainContainer = styled.div`
   box-sizing: border-box;
@@ -17,6 +18,7 @@ createRoot(document.getElementById("root")!).render(
     <MainContainer>
       <Header />
       <Introduction />
+      <Projects />
     </MainContainer>
   </StrictMode>
 );
