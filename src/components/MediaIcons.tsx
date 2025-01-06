@@ -2,6 +2,7 @@ import React from "react";
 import linkedInImage from "../../src/assets/linkedin_img.png";
 import githubImage from "../../src/assets/github_img.png";
 import styled from "styled-components";
+import Icon from "./Icon";
 
 const IconsContainer = styled.ul`
   display: flex;
@@ -13,19 +14,15 @@ const IconWrapper = styled.li`
   list-style: none;
 `;
 
-const ImageIcon = styled.img`
-  width: 50px;
-  height: 50px;
-`;
 
 const MediaIcons = () => {
   return (
     <IconsContainer>
       <IconWrapper>
-        <ImageIcon src={linkedInImage} />
+        <Icon src={linkedInImage} width={50} height={50} />
       </IconWrapper>
       <IconWrapper>
-        <ImageIcon src={githubImage} />
+        <Icon src={githubImage} width={50} height={50} />
       </IconWrapper>
     </IconsContainer>
   );

@@ -1,12 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import MediaIcons from "./MediaIcons";
+import Icon from "./Icon";
+import DownArrow from '../../src/assets/down_arrow_img.png'
 
 const IntroductionContainer = styled.section`
+
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-image: url("../../src/assets/header_img.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding-bottom: 20px;
+  padding-top: 20px;
 `;
 
 const Title = styled.h1`
@@ -44,6 +52,7 @@ const Introduction = () => {
         you need to code, don&apos;t hesitate to contact me.
       </Paragraph>
       <MediaIcons />
+      <Icon src={DownArrow} width={40} height={40} />
     </IntroductionContainer>
   );
 };

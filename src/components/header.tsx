@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import menuImage from "../../src/assets/menu_img.png";
 import quitImage from "../../src/assets/quit_img.png";
+import Icon from "./Icon";
 
 const HeaderContainer = styled.header<{ $isMobile?: boolean }>`
   display: flex;
@@ -22,11 +23,6 @@ const MenuButton = styled.button`
   border: none;
   background-color: white;
   align-self: flex-end;
-`;
-
-const Icon = styled.img`
-  width: 50px;
-  height: 50px;
 `;
 
 const DropMenu = styled.div`
@@ -75,12 +71,12 @@ const Header = () => {
         <>
           <MenuOption>Welcome</MenuOption>
           <MenuButton onClick={() => setIsOpen(true)}>
-            <Icon src={menuImage} />
+            <Icon src={menuImage} width={50} height={50} />
           </MenuButton>
           {isOpen && (
             <DropMenu>
               <MenuButton onClick={()=>setIsOpen(false)}>
-                <Icon src={quitImage} />
+                <Icon src={quitImage} width={50} height={50} />
               </MenuButton>
               <Menu isOpen={isOpen} />
             </DropMenu>
