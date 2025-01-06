@@ -3,10 +3,10 @@ import styled from "styled-components";
 import menuImage from "../../src/assets/menu_img.png";
 import quitImage from "../../src/assets/quit_img.png";
 
-const HeaderContainer = styled.header<{ isMobile?: boolean }>`
+const HeaderContainer = styled.header<{ $isMobile?: boolean }>`
   display: flex;
-  justify-content: ${(props) => (props.isMobile ? "space-between" : "center")};
-  padding-top: ${(props) => (props.isMobile ? "10px" : "36px")};
+  justify-content: ${({$isMobile}) => ($isMobile ? "space-between" : "center")};
+  padding-top: ${({$isMobile}) => ($isMobile ? "10px" : "36px")};
   align-items: center;
   font-family: Arial, Helvetica, sans-serif;
 `;
@@ -39,16 +39,16 @@ const DropMenu = styled.div`
   flex-direction: column;
 `;
 
-const MenuContainer = styled.div<{ isOpen?: boolean }>`
+const MenuContainer = styled.div<{ $isOpen?: boolean }>`
   display: flex;
-  flex-direction: ${(props) => (props.isOpen ? "column" : "row")};
-  column-gap: ${(props) => (props.isOpen ? "0px" : "32px")};
-  row-gap: ${(props) => (props.isOpen ? "15px" : "0px")};
+  flex-direction: ${({$isOpen}) => ($isOpen ? "column" : "row")};
+  column-gap: ${({$isOpen}) => ($isOpen ? "0px" : "32px")};
+  row-gap: ${({$isOpen}) => ($isOpen ? "15px" : "0px")};
 `;
 
 const Menu = ({ isOpen }: { isOpen?: boolean }) => {
   return (
-    <MenuContainer isOpen={isOpen}>
+    <MenuContainer $isOpen={isOpen}>
       <MenuOption>Projects</MenuOption>
       <MenuOption>About</MenuOption>
       <MenuOption>Contact</MenuOption>
@@ -70,7 +70,7 @@ const Header = () => {
   }, [innerWidth]);
 
   return (
-    <HeaderContainer isMobile={isMobile}>
+    <HeaderContainer $isMobile={isMobile} >
       {isMobile ? (
         <>
           <MenuOption>Welcome</MenuOption>
