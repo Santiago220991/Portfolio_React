@@ -1,5 +1,7 @@
+const GREEN = "#36b37f"
 const LIGHTGREEN="#90ee90"
 const BLUE="#344563"
+const HOVERGREEN="#008552"
+const GRAY="#ebf0ee"
 
-
-export  {LIGHTGREEN, BLUE}
+export  {GREEN, LIGHTGREEN, HOVERGREEN, BLUE, GRAY}

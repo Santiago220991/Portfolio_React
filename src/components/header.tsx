@@ -8,9 +8,9 @@ import {BLUE} from "../constants/colors"
 const HeaderContainer = styled.header<{ $isMobile?: boolean }>`
   display: flex;
   justify-content: ${({$isMobile}) => ($isMobile ? "space-between" : "center")};
-  padding-top: ${({$isMobile}) => ($isMobile ? "10px" : "36px")};
+  padding-top: ${({$isMobile}) => ($isMobile ? "0px" : "36px")};
   align-items: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial Helvetica sans-serif;
 `;
 
 const MenuOption = styled.a`
