@@ -8,6 +8,7 @@ const AboutContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 64px;
 `;
 
 const Subtitle = styled.h2`
@@ -24,6 +25,7 @@ const Paragraph = styled.p`
   font-weight: 400;
   font-size: 20px;
   width: 90%;
+  line-height: 32px;
 `;
 
 const About = () => {

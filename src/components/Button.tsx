@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from "@mui/material/Button";
 import { GREEN, HOVERGREEN } from '../constants/colors';
+import { Typography } from '@mui/material';
 
 const ActionButton = ({text}:{text: string})=>{
     return (
@@ -16,7 +17,7 @@ const ActionButton = ({text}:{text: string})=>{
             },
           }}
         >
-          {text}
+         <Typography textTransform={'none'}>{text}</Typography>
         </Button>
     )
 }
