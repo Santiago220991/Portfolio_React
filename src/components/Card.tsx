@@ -3,10 +3,10 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { GRAY, GREEN, HOVERGREEN } from "../constants/colors";
+import { GRAY } from "../constants/colors";
 import { Chip, Stack } from "@mui/material";
+import ActionButton from "./Button";
 
 const ProjectCard = ({
   src,
@@ -69,20 +69,7 @@ const ProjectCard = ({
         ))}
       </Stack>
       <CardActions>
-        <Button
-          size="medium"
-          sx={{
-            backgroundColor: GREEN,
-            marginTop: "24px",
-            marginBottom: "24px",
-            color: "white",
-            "&:hover": {
-              backgroundColor: HOVERGREEN,
-            },
-          }}
-        >
-          See Project
-        </Button>
+        <ActionButton text={"See project"} />
       </CardActions>
     </Card>
   );

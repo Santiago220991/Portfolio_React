@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Introduction from "./components/Introduction.tsx";
 import Projects from "./components/Projects.tsx";
 import { ProjectsProvider } from "./contexts/projects_context.tsx";
+import About from "./components/About.tsx";
 
 const MainContainer = styled.div`
   box-sizing: border-box;
@@ -22,6 +23,7 @@ createRoot(document.getElementById("root")!).render(
       <ProjectsProvider>
         <Projects />
       </ProjectsProvider>
+      <About/>
     </MainContainer>
   </StrictMode>
 );
