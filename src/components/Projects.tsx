@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BLUE } from "../constants/colors";
+import { BLUE, GREEN } from "../constants/colors";
 import ProjectCard from "./Card";
 import useProjectsContext from "../hooks/projects";
 
@@ -20,10 +20,20 @@ const Subtitle = styled.h2`
   margin-bottom: 0;
 `;
 
+const Line = styled.p`
+  background-color: ${GREEN};
+  width: 100px;
+  height: 8px;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+`
+
 const CardsContainer = styled.div`
   maxWidth: 95%;
   display: flex;
   flex-direction: column;
+  row-gap: 24px;
 `;
 
 const Projects = () => {
@@ -31,6 +41,7 @@ const Projects = () => {
   return (
     <ProjectsContainer>
       <Subtitle> My Recent Work</Subtitle>
+      <Line />
       <CardsContainer>
         {projectsList.projects.map((project) => (
           <ProjectCard
