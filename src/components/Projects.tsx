@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { BLUE, GREEN } from "../constants/colors";
-import ProjectCard from "./Card";
+import ProjectCard from "./ProjectCard";
 import useProjectsContext from "../hooks/projects";
 
 const ProjectsContainer = styled.section`
@@ -27,10 +27,10 @@ const Line = styled.p`
   border-radius: 10px;
   margin-top: 30px;
   margin-bottom: 20px;
-`
+`;
 
 const CardsContainer = styled.div`
-  maxWidth: 95%;
+  max-width: 465px;
   display: flex;
   flex-direction: column;
   row-gap: 24px;

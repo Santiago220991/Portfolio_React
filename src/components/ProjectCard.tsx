@@ -4,9 +4,9 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { GRAY } from "../constants/colors";
-import { Chip, Stack } from "@mui/material";
+import { BLUE, GRAY } from "../constants/colors";
 import ActionButton from "./Button";
+import Chips from "./Chips";
 
 const ProjectCard = ({
   src,
@@ -39,35 +39,17 @@ const ProjectCard = ({
           sx={{
             fontSize: "24px",
             fontWeight: 600,
+            color: BLUE,
           }}
         >
           {title}
         </Typography>
       </CardContent>
-      <Stack
-        direction="row"
-        spacing={1}
-        sx={{
-          marginTop: "16px",
-          marginBottom: "16px",
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          rowGap: "8px",
-          fontSize: "12px",
-          paddingLeft: "10px",
-          paddingRight: "10px",
-        }}
-      >
-        {technologies.map((technologie, index) => (
-          <Chip
-            key={`${technologie}-${index}`}
-            sx={{ borderRadius: 1, backgroundColor: GRAY, fontWeight: 600 }}
-            label={technologie}
-            size="medium"
-          />
-        ))}
-      </Stack>
+      <Chips
+        dataCollection={technologies}
+        backgroundColor={GRAY}
+        textColor=""
+      />
       <CardActions>
         <ActionButton text={"See project"} />
       </CardActions>

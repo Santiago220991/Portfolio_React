@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { BLUE } from "../constants/colors";
 import ActionButton from "./Button";
+import SkillCard from "./SkillCard";
 
 const AboutContainer = styled.section`
   font-family: Arial, Helvetica, sans-serif;
@@ -27,6 +28,7 @@ const Paragraph = styled.p`
   width: 90%;
   line-height: 32px;
 `;
+
 
 const About = () => {
   return (
