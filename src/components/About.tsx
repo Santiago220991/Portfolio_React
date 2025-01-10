@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { BLUE } from "../constants/colors";
 import ActionButton from "./Button";
-import SkillCard from "./SkillCard";
 
 const AboutContainer = styled.section`
   font-family: Arial, Helvetica, sans-serif;
@@ -35,8 +34,8 @@ const About = () => {
     <AboutContainer>
       <Subtitle>About Me</Subtitle>
       <Paragraph>
-        I'm an Electronics and Telecommunications Engineer turned Full Stack
-        Software Developer. I'm fluent in multiple languages, frameworks, and
+        I&apos;m an Electronics and Telecommunications Engineer turned Full Stack
+        Software Developer. I&apos;m fluent in multiple languages, frameworks, and
         technologies and capable of adapting quickly and efficiently to
         different environments.
       </Paragraph>
