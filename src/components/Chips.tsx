@@ -10,7 +10,6 @@ const Chips = ({
   backgroundColor: string;
   textColor?: string
 }) => {
-    console.log(textColor)
   return (
     <Stack
       direction="row"
