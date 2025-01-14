@@ -23,15 +23,15 @@ const Input = styled.input`
 `;
 
 const TextArea = styled.textarea`
-   border-radius: 4px;
-   border: 2px solid ${GREEN};
-   height:100px;
-   width: 100%;
-   padding: 15px;
-   box-sizing: border-box;
-   margin-bottom: 24px;
-   margin-top: 12px;
-`
+  border-radius: 4px;
+  border: 2px solid ${GREEN};
+  height: 100px;
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  margin-bottom: 24px;
+  margin-top: 12px;
+`;
 
 const Submit = styled.input`
   border: none;
@@ -59,7 +59,7 @@ const Paragraph = styled.p`
   margin-bottom: 0px;
   width: 100%;
   text-align: left;
-`
+`;
 
 const schema = yup
   .object({
@@ -81,11 +81,11 @@ const ContactForm = () => {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Input {...register("Name")} />
+      <Input placeholder="Full Name" {...register("Name")} />
       <Paragraph>{errors.Name?.message}</Paragraph>
-      <Input {...register("Email")} />
+      <Input placeholder="Email Address" {...register("Email")} />
       <Paragraph>{errors.Email?.message}</Paragraph>
-      <TextArea {...register("Message")} />
+      <TextArea placeholder="Enter text here" {...register("Message")} />
       <Paragraph>{errors.Message?.message}</Paragraph>
       <Submit type="submit" value="Get in Touch" />
     </Form>
