@@ -45,7 +45,7 @@ const Paragraph = styled.p`
 const Introduction = () => {
   return (
     <IntroductionContainer>
-      <Title>Hey there. I&apos;m Santiago Cárdenas</Title>
+      <Title>Hey there. I&apos;m Alexander Santiago Cárdenas</Title>
       <Subtitle>I&apos;m a software developer</Subtitle>
       <Paragraph>
         I can help you build a product, feature, or website. Look through some

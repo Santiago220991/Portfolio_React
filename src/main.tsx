@@ -10,6 +10,7 @@ import About from "./components/About.tsx";
 import Skills from "./components/Skills.tsx";
 import { SkillsProvider } from "./contexts/skills_context.tsx";
 import Footer from "./components/Footer.tsx";
+import Contact from "./components/Contact.tsx";
 
 const MainContainer = styled.div`
   box-sizing: border-box;
@@ -30,6 +31,7 @@ createRoot(document.getElementById("root")!).render(
       <SkillsProvider>
         <Skills />
       </SkillsProvider>
+      <Contact />
       <Footer />
     </MainContainer>
   </StrictMode>
