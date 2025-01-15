@@ -3,6 +3,7 @@ import SkillCard from "./SkillCard";
 import styled from "styled-components";
 import useSkillsContext from "../hooks/skills";
 
+
 const SkillsContainer = styled.section`
   font-family: Arial, Helvetica, sans-serif;
   display: flex;

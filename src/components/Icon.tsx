@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const IconWrapper = styled.img<{ $width: number; $height: number }>`
+const IconWrapper = styled.img<{ $width: number; $height: number; $isMobile?: boolean }>`
   width: ${({ $width }) => `${$width}px`};
   height: ${({ $height }) => `${$height}px`};
 `;

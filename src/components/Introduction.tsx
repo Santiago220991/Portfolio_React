@@ -2,20 +2,24 @@ import React from "react";
 import styled from "styled-components";
 import MediaIcons from "./MediaIcons";
 import Icon from "./Icon";
-import DownArrow from '../../src/assets/down_arrow_img.png'
-import {BLUE, LIGHTGREEN} from '../constants/colors'
+import DownArrow from "../../src/assets/down_arrow_img.png";
+import { BLUE, LIGHTGREEN } from "../constants/colors";
+import useIsMobile from "../hooks/mobile";
 
-const IntroductionContainer = styled.section`
-
+const IntroductionContainer = styled.section<{ $isMobile?: boolean }>`
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("../../src/assets/header_img.png");
+  background-image: ${({ $isMobile }) =>
+    $isMobile ? `url("../../src/assets/header_img.png")` : "none"};
   background-repeat: no-repeat;
-  background-size: 100% 100%;
-  padding-bottom: 20px;
-  padding-top: 20px;
+  background-size: 100%;
+  padding-bottom: ${({ $isMobile }) => ($isMobile ? "20px" : "60px")};
+  padding-top: ${({ $isMobile }) => ($isMobile ? "20px" : "165px")};
+  img{
+    margin-bottom: ${({ $isMobile }) => ($isMobile ? "0px" : "75px")};
+  }
 `;
 
 const Title = styled.h1`
@@ -35,16 +39,18 @@ const Subtitle = styled.h2`
   margin-bottom: 0;
 `;
 
-const Paragraph = styled.p`
+const Paragraph = styled.p<{ $isMobile?: boolean }>`
   text-align: center;
   font-weight: 400;
   font-size: 20px;
-  width: 90%;
+  width: ${({ $isMobile }) => ($isMobile ? "90%" : "70%")};
 `;
 
 const Introduction = () => {
+  const { isMobile } = useIsMobile();
+
   return (
-    <IntroductionContainer>
+    <IntroductionContainer $isMobile={isMobile}>
       <Title>Hey there. I&apos;m Alexander Santiago Cárdenas</Title>
       <Subtitle>I&apos;m a software developer</Subtitle>
       <Paragraph>
@@ -53,7 +59,7 @@ const Introduction = () => {
         you need to code, don&apos;t hesitate to contact me.
       </Paragraph>
       <MediaIcons />
-      <Icon src={DownArrow} width={40} height={40} />
+      <Icon src={DownArrow} width={40} height={40}  />
     </IntroductionContainer>
   );
 };

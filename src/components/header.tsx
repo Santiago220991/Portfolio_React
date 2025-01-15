@@ -3,14 +3,16 @@ import styled from "styled-components";
 import menuImage from "../../src/assets/menu_img.png";
 import quitImage from "../../src/assets/quit_img.png";
 import Icon from "./Icon";
-import {BLUE} from "../constants/colors"
+import { BLUE } from "../constants/colors";
+import useIsMobile from "../hooks/mobile";
 
 const HeaderContainer = styled.header<{ $isMobile?: boolean }>`
   display: flex;
-  justify-content: ${({$isMobile}) => ($isMobile ? "space-between" : "center")};
-  padding-top: ${({$isMobile}) => ($isMobile ? "0px" : "36px")};
+  justify-content: ${({ $isMobile }) =>
+    $isMobile ? "space-between" : "center"};
+  padding-top: ${({ $isMobile }) => ($isMobile ? "0px" : "36px")};
   align-items: center;
-  font-family: Arial Helvetica sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 `;
 
 const MenuOption = styled.a`
@@ -38,9 +40,9 @@ const DropMenu = styled.div`
 
 const MenuContainer = styled.div<{ $isOpen?: boolean }>`
   display: flex;
-  flex-direction: ${({$isOpen}) => ($isOpen ? "column" : "row")};
-  column-gap: ${({$isOpen}) => ($isOpen ? "0px" : "32px")};
-  row-gap: ${({$isOpen}) => ($isOpen ? "15px" : "0px")};
+  flex-direction: ${({ $isOpen }) => ($isOpen ? "column" : "row")};
+  column-gap: ${({ $isOpen }) => ($isOpen ? "0px" : "32px")};
+  row-gap: ${({ $isOpen }) => ($isOpen ? "15px" : "0px")};
 `;
 
 const Menu = ({ isOpen }: { isOpen?: boolean }) => {
@@ -54,7 +56,7 @@ const Menu = ({ isOpen }: { isOpen?: boolean }) => {
 };
 
 const Header = () => {
-  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const { isMobile, setIsMobile } = useIsMobile();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
@@ -67,7 +69,7 @@ const Header = () => {
   }, [innerWidth]);
 
   return (
-    <HeaderContainer $isMobile={isMobile} >
+    <HeaderContainer $isMobile={isMobile}>
       {isMobile ? (
         <>
           <MenuOption>Welcome</MenuOption>
@@ -76,7 +78,7 @@ const Header = () => {
           </MenuButton>
           {isOpen && (
             <DropMenu>
-              <MenuButton onClick={()=>setIsOpen(false)}>
+              <MenuButton onClick={() => setIsOpen(false)}>
                 <Icon src={quitImage} width={50} height={50} />
               </MenuButton>
               <Menu isOpen={isOpen} />
