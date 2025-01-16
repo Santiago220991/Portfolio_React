@@ -24,6 +24,7 @@ const ProjectCard = ({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        height: "100%",
       }}
     >
       <CardMedia
@@ -31,7 +32,7 @@ const ProjectCard = ({
         image={`../../src/assets/${src}`}
         title="tourify project"
       />
-      <CardContent>
+      <CardContent sx={{ flexGrow: 1 }}>
         <Typography
           gutterBottom
           variant="h5"
@@ -40,6 +41,9 @@ const ProjectCard = ({
             fontSize: "24px",
             fontWeight: 600,
             color: BLUE,
+            maxHeight: "auto",
+            flexGrow: 1,
+            textAlign: "center",
           }}
         >
           {title}
