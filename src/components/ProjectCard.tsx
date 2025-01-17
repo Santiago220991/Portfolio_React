@@ -24,7 +24,7 @@ const ProjectCard = ({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        height: "100%",
+        height: 1,
         maxWidth: { md: "425px" },
       }}
     >
@@ -53,7 +53,6 @@ const ProjectCard = ({
       <Chips
         dataCollection={technologies}
         backgroundColor={GRAY}
-        textColor=""
       />
       <CardActions>
         <ActionButton text={"See project"} />

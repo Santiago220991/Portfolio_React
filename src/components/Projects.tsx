@@ -50,7 +50,7 @@ const Projects = () => {
       <CardsContainer $isMobile={isMobile}>
         <Grid
           container
-          spacing={{ xs: 1, sm: 2, md: 6 }}
+          spacing={{ xs: 4, sm: 4, md: 6 }}
           columns={{ xs: 1, sm: isMobile ? 1 : 2, md: 3 }}
         >
           {projectsList.projects.map((project, index) => (
