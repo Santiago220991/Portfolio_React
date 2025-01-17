@@ -25,10 +25,11 @@ const ProjectCard = ({
         flexDirection: "column",
         alignItems: "center",
         height: "100%",
+        maxWidth: { md: "425px" },
       }}
     >
       <CardMedia
-        sx={{ height: 250, width: "100%" }}
+        sx={{ height: 250, width: "100%", objectFit: "cover" }}
         image={`../../src/assets/${src}`}
         title="tourify project"
       />
