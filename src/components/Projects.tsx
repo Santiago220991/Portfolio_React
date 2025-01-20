@@ -38,6 +38,7 @@ const CardsContainer = styled.div<{ $isMobile?: boolean }>`
   display: flex;
   flex-direction: column;
   row-gap: 24px;
+  margin-left: ${({ $isMobile }) => ($isMobile ? "0px" : "2%")};
 `;
 
 const Projects = () => {

@@ -13,6 +13,7 @@ import Footer from "./components/Footer.tsx";
 import Contact from "./components/Contact.tsx";
 import MainSection from "./components/MainSection.tsx";
 import MainContainer from "./components/MainContainer.tsx";
+import FooterSection from "./components/FooterSection.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -28,8 +29,10 @@ createRoot(document.getElementById("root")!).render(
       <SkillsProvider>
         <Skills />
       </SkillsProvider>
-      <Contact />
-      <Footer />
+      <FooterSection>
+        <Contact />
+        <Footer />
+      </FooterSection>
     </MainContainer>
   </StrictMode>
 );
