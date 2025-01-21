@@ -17,7 +17,7 @@ const IntroductionContainer = styled.section<{ $isMobile?: boolean }>`
   background-size: 100%;
   padding-bottom: ${({ $isMobile }) => ($isMobile ? "20px" : "60px")};
   padding-top: ${({ $isMobile }) => ($isMobile ? "20px" : "165px")};
-  img{
+  img {
     margin-bottom: ${({ $isMobile }) => ($isMobile ? "0px" : "75px")};
   }
 `;
@@ -46,6 +46,10 @@ const Paragraph = styled.p<{ $isMobile?: boolean }>`
   width: ${({ $isMobile }) => ($isMobile ? "90%" : "70%")};
 `;
 
+const Anchor = styled.a`
+  margin-top: 20px;
+`;
+
 const Introduction = () => {
   const { isMobile } = useIsMobile();
 
@@ -59,7 +63,9 @@ const Introduction = () => {
         you need to code, don&apos;t hesitate to contact me.
       </Paragraph>
       <MediaIcons />
-      <Icon src={DownArrow} width={40} height={40}  />
+      <Anchor href="#projects">
+        <Icon src={DownArrow} width={40} height={40} />
+      </Anchor>
     </IntroductionContainer>
   );
 };

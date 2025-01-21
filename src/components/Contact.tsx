@@ -33,7 +33,7 @@ const Paragraph = styled.p<{ $isMobile: boolean }>`
 const Contact = () => {
   const { isMobile } = useIsMobile();
   return (
-    <ContactContainer $isMobile={isMobile}>
+    <ContactContainer $isMobile={isMobile} id={"contact"}>
       <CenteredDiv $isMobile={isMobile}>
         <Paragraph $isMobile={isMobile}>
           I&apos;m always interested in hearing about new projects, so if

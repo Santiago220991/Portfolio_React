@@ -14,15 +14,20 @@ const IconWrapper = styled.li`
   list-style: none;
 `;
 
+const Anchor = styled.a``;
 
 const MediaIcons = () => {
   return (
     <IconsContainer>
       <IconWrapper>
-        <Icon src={linkedInImage} width={50} height={50} />
+        <Anchor href="https://www.linkedin.com/in/alexandersantiagocardenas">
+          <Icon src={linkedInImage} width={50} height={50} />
+        </Anchor>
       </IconWrapper>
       <IconWrapper>
-        <Icon src={githubImage} width={50} height={50} />
+        <Anchor href="https://github.com/Santiago220991">
+          <Icon src={githubImage} width={50} height={50} />
+        </Anchor>
       </IconWrapper>
     </IconsContainer>
   );

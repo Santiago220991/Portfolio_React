@@ -27,7 +27,7 @@ const Subtitle = styled.h2`
   text-align: "justify";
 `;
 
-const Paragraph = styled.p<{$isMobile: boolean}>`
+const Paragraph = styled.p<{ $isMobile: boolean }>`
   text-align: center;
   font-weight: 400;
   font-size: 20px;
@@ -40,7 +40,7 @@ const Paragraph = styled.p<{$isMobile: boolean}>`
 const About = () => {
   const { isMobile } = useIsMobile();
   return (
-    <AboutContainer $isMobile={isMobile}>
+    <AboutContainer $isMobile={isMobile} id={"about"}>
       <Subtitle>About Me</Subtitle>
       <Paragraph $isMobile={isMobile}>
         I&apos;m an Electronics and Telecommunications Engineer turned Full

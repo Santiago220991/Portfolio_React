@@ -45,7 +45,7 @@ const Projects = () => {
   const projectsList = useProjectsContext();
   const { isMobile } = useIsMobile();
   return (
-    <ProjectsContainer $isMobile={isMobile}>
+    <ProjectsContainer $isMobile={isMobile} id={"projects"}>
       <Subtitle $isMobile={isMobile}> My Recent Work</Subtitle>
       <Line $isMobile={isMobile} />
       <CardsContainer $isMobile={isMobile}>

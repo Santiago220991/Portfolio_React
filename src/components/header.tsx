@@ -29,13 +29,15 @@ const MenuButton = styled.button`
 `;
 
 const DropMenu = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   background-color: white;
   width: 96%;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  padding-left: 20px;
+  z-index: 10;
 `;
 
 const MenuContainer = styled.div<{ $isOpen?: boolean }>`
@@ -45,12 +47,30 @@ const MenuContainer = styled.div<{ $isOpen?: boolean }>`
   row-gap: ${({ $isOpen }) => ($isOpen ? "15px" : "0px")};
 `;
 
-const Menu = ({ isOpen }: { isOpen?: boolean }) => {
+const Menu = ({
+  isOpen,
+  setIsOpen,
+}: {
+  isOpen?: boolean;
+  setIsOpen?: (value: boolean) => void;
+}) => {
   return (
     <MenuContainer $isOpen={isOpen}>
-      <MenuOption>Projects</MenuOption>
-      <MenuOption>About</MenuOption>
-      <MenuOption>Contact</MenuOption>
+      <MenuOption
+        href={"#projects"}
+        onClick={() => setIsOpen && setIsOpen(false)}
+      >
+        Projects
+      </MenuOption>
+      <MenuOption href={"#about"} onClick={() => setIsOpen && setIsOpen(false)}>
+        About
+      </MenuOption>
+      <MenuOption
+        href={"#contact"}
+        onClick={() => setIsOpen && setIsOpen(false)}
+      >
+        Contact
+      </MenuOption>
     </MenuContainer>
   );
 };
@@ -72,7 +92,7 @@ const Header = () => {
     <HeaderContainer $isMobile={isMobile}>
       {isMobile ? (
         <>
-          <MenuOption>Welcome</MenuOption>
+          <MenuOption style={{marginLeft: "20px"}}>Welcome</MenuOption>
           <MenuButton onClick={() => setIsOpen(true)}>
             <Icon src={menuImage} width={50} height={50} />
           </MenuButton>
@@ -81,7 +101,7 @@ const Header = () => {
               <MenuButton onClick={() => setIsOpen(false)}>
                 <Icon src={quitImage} width={50} height={50} />
               </MenuButton>
-              <Menu isOpen={isOpen} />
+              <Menu isOpen={isOpen} setIsOpen={setIsOpen} />
             </DropMenu>
           )}
         </>
