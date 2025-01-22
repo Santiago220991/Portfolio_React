@@ -48,7 +48,9 @@ const About = () => {
         frameworks, and technologies and capable of adapting quickly and
         efficiently to different environments.
       </Paragraph>
+      <a href="https://docs.google.com/document/d/1hcnKl0GRtaVQHrg3o7-vnLDPPevXOuaPjQlm2s8q6GU/edit?usp=sharing">
       <ActionButton text={"Get Resume"} />
+      </a>
     </AboutContainer>
   );
 };
