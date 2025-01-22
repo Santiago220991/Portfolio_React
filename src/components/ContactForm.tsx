@@ -20,6 +20,15 @@ const Input = styled.input`
   padding: 15px;
   width: 100%;
   box-sizing: border-box;
+  &::placeholder {
+    transition-property: transform;
+    transition-duration: 1s;
+  }
+  &:hover::placeholder {
+    transform: translate(10px);
+    transition-property: transform;
+    transition-duration: 1s;
+  }
 `;
 
 const TextArea = styled.textarea`
@@ -31,6 +40,15 @@ const TextArea = styled.textarea`
   box-sizing: border-box;
   margin-bottom: 24px;
   margin-top: 12px;
+  &::placeholder {
+    transition-property: transform;
+    transition-duration: 1s;
+  }
+  &:hover::placeholder {
+    transform: translate(10px);
+    transition-property: transform;
+    transition-duration: 1s;
+  }
 `;
 
 const Submit = styled.input`
