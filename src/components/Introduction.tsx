@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import { styled, keyframes } from "styled-components";
 import MediaIcons from "./MediaIcons";
 import Icon from "./Icon";
 import DownArrow from "../../src/assets/down_arrow_img.png";
@@ -18,8 +18,24 @@ const IntroductionContainer = styled.section<{ $isMobile?: boolean }>`
   padding-bottom: ${({ $isMobile }) => ($isMobile ? "20px" : "60px")};
   padding-top: ${({ $isMobile }) => ($isMobile ? "20px" : "165px")};
   img {
-    margin-bottom: ${({ $isMobile }) => ($isMobile ? "0px" : "75px")};
+    margin-bottom: ${({ $isMobile }) => ($isMobile ? "0px" : "10%")};
   }
+  overflow-x: hidden;
+`;
+
+const backToFront = keyframes`
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+`;
+
+const leftToRight = keyframes`
+  from { transform: translate(-700px);}
+  to { transform: translate(0);}
+`;
+
+const rightToLeft = keyframes`
+  from { transform: translate(700px);}
+  to { transform: translate(0);}
 `;
 
 const Title = styled.h1`
@@ -28,6 +44,8 @@ const Title = styled.h1`
   font-size: 40px;
   font-weight: 700;
   margin-bottom: 0;
+  animation-name: ${backToFront};
+  animation-duration: 2s;
 `;
 
 const Subtitle = styled.h2`
@@ -37,6 +55,8 @@ const Subtitle = styled.h2`
   font-weight: 700;
   margin-top: 20px;
   margin-bottom: 0;
+  animation-name: ${leftToRight};
+  animation-duration: 2s;
 `;
 
 const Paragraph = styled.p<{ $isMobile?: boolean }>`
@@ -44,6 +64,8 @@ const Paragraph = styled.p<{ $isMobile?: boolean }>`
   font-weight: 400;
   font-size: 20px;
   width: ${({ $isMobile }) => ($isMobile ? "90%" : "70%")};
+  animation-name: ${rightToLeft};
+  animation-duration: 2s;
 `;
 
 const Anchor = styled.a`
@@ -57,7 +79,7 @@ const Introduction = () => {
     <IntroductionContainer $isMobile={isMobile}>
       <Title>Hey there. I&apos;m Alexander Santiago Cárdenas</Title>
       <Subtitle>I&apos;m a software developer</Subtitle>
-      <Paragraph>
+      <Paragraph $isMobile={isMobile}>
         I can help you build a product, feature, or website. Look through some
         of my work and experience! If you like what you see and have a project
         you need to code, don&apos;t hesitate to contact me.

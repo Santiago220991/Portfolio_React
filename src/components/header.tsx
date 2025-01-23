@@ -20,6 +20,7 @@ const MenuOption = styled.a`
   font-size: 20px;
   cursor: pointer;
   color: ${BLUE};
+  text-decoration: none;
 `;
 
 const MenuButton = styled.button`
@@ -32,7 +33,7 @@ const DropMenu = styled.div`
   position: fixed;
   top: 0;
   background-color: white;
-  width: 96%;
+  width: 94%;
   height: 100vh;
   display: flex;
   flex-direction: column;

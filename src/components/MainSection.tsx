@@ -7,7 +7,7 @@ const MainSectionContainer = styled.div<{ $isMobile?: boolean }>`
     $isMobile ? "none" : `url("../../src/assets/header_desktop_img.png")`};
   background-repeat: no-repeat;
   background-size: 100%;
-  padding-bottom: ${({ $isMobile }) => ($isMobile ? "0px" : "50px")};
+  padding-bottom: ${({ $isMobile }) => ($isMobile ? "0px" : "1%")};
 `;
 
 const MainSection = ({ children }: { children: React.ReactNode }) => {
