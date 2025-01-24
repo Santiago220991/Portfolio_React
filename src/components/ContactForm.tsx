@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSubmit } from "@formspree/react";
 import styled from "styled-components";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -81,30 +82,67 @@ const Paragraph = styled.p`
 
 const schema = yup
   .object({
-    Name: yup.string().required(),
-    Email: yup.string().email().required(),
-    Message: yup.string().required(),
+    name: yup.string().required(),
+    email: yup.string().email().required(),
+    message: yup.string().required(),
   })
   .required();
+
+type FormData = yup.InferType<typeof schema>;
 
 const ContactForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) => console.log(data);
+
+  useEffect(() => {
+    const data = localStorage.getItem("session");
+    if (data) {
+      const savedData: FormData = JSON.parse(data);
+      setValue("name", savedData.name);
+      setValue("email", savedData.email);
+      setValue("message", savedData.message);
+    }
+  }, [setValue]);
+
+  const handleInputChange = (field: keyof FormData, value: string) => {
+    const existingData = localStorage.getItem("session");
+    const formData: FormData = existingData
+      ? JSON.parse(existingData)
+      : { name: "", email: "", message: "" };
+
+    formData[field] = value;
+
+    localStorage.setItem("session", JSON.stringify(formData));
+  };
+
+  const onSubmit = useSubmit("xyyopqgn");
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Input placeholder="Full Name" {...register("Name")} />
-      <Paragraph>{errors.Name?.message}</Paragraph>
-      <Input placeholder="Email Address" {...register("Email")} />
-      <Paragraph>{errors.Email?.message}</Paragraph>
-      <TextArea placeholder="Enter text here" {...register("Message")} />
-      <Paragraph>{errors.Message?.message}</Paragraph>
+      <Input
+        placeholder="Full Name"
+        {...register("name")}
+        onChange={(e) => handleInputChange("name", e.target.value)}
+      />
+      <Paragraph>{errors.name?.message}</Paragraph>
+      <Input
+        placeholder="Email Address"
+        {...register("email")}
+        onChange={(e) => handleInputChange("email", e.target.value)}
+      />
+      <Paragraph>{errors.email?.message}</Paragraph>
+      <TextArea
+        placeholder="Enter text here"
+        {...register("message")}
+        onChange={(e) => handleInputChange("message", e.target.value)}
+      />
+      <Paragraph>{errors.message?.message}</Paragraph>
       <Submit type="submit" value="Get in Touch" />
     </Form>
   );
