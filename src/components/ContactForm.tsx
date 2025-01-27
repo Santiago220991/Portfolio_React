@@ -111,12 +111,6 @@ const ContactForm = () => {
     }
   }, [setValue]);
 
-  useEffect(() => {
-    setTimeout(() => {
-      reset(undefined, { keepDirtyValues: true });
-    }, 4000);
-  }, [isSubmitSuccessful]);
-
   const handleInputChange = (field: keyof FormData, value: string) => {
     const existingData = localStorage.getItem("session");
     const formData: FormData = existingData
@@ -128,7 +122,13 @@ const ContactForm = () => {
     localStorage.setItem("session", JSON.stringify(formData));
   };
 
-  const onSubmit = useSubmit("xyyopqgn");
+  const onSubmit = useSubmit("xyyopqgn", {
+    onSuccess: () => {
+      setTimeout(() => {
+        reset(undefined, { keepDirtyValues: true });
+      }, 4000);
+    },
+  });
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
