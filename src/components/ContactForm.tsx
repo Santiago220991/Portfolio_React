@@ -94,7 +94,8 @@ const ContactForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset,
+    formState: { errors, isSubmitting, isSubmitSuccessful },
     setValue,
   } = useForm({
     resolver: yupResolver(schema),
@@ -109,6 +110,12 @@ const ContactForm = () => {
       setValue("message", savedData.message);
     }
   }, [setValue]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      reset(undefined, { keepDirtyValues: true });
+    }, 4000);
+  }, [isSubmitSuccessful]);
 
   const handleInputChange = (field: keyof FormData, value: string) => {
     const existingData = localStorage.getItem("session");
@@ -125,6 +132,7 @@ const ContactForm = () => {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
+      {isSubmitSuccessful && <h3>Your message has been sent successfully!</h3>}
       <Input
         placeholder="Full Name"
         {...register("name")}
@@ -143,7 +151,11 @@ const ContactForm = () => {
         onChange={(e) => handleInputChange("message", e.target.value)}
       />
       <Paragraph>{errors.message?.message}</Paragraph>
-      <Submit type="submit" value="Get in Touch" />
+      <Submit
+        type="submit"
+        value={`${isSubmitting ? "Submitting" : "Get in Touch"}`}
+        disabled={isSubmitting}
+      />
     </Form>
   );
 };
