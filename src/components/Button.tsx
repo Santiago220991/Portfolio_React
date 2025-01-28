@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import { GREEN, HOVERGREEN } from '../constants/colors';
 import { Typography } from '@mui/material';
 
-const ActionButton = ({text}:{text: string})=>{
+const ActionButton = ({text, onClick}:{text: string, onClick:()=>void})=>{
     return (
         <Button
           size="medium"
@@ -16,6 +16,7 @@ const ActionButton = ({text}:{text: string})=>{
               backgroundColor: HOVERGREEN,
             },
           }}
+          onClick={onClick}
         >
          <Typography textTransform={'none'}>{text}</Typography>
         </Button>
