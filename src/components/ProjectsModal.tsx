@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { BLUE, GRAY } from "../constants/colors";
 import { Card, CardMedia, Typography } from "@mui/material";
+import ModalActionButton from "./ModalActionButton";
+import { ProjectsProps } from "./ProjectCard";
+import seeLive from "/src/assets/see_live.png";
+import gitHub from "/src/assets/github_white_img.png";
 
 const ModalContainer = styled.div`
   position: fixed;
@@ -17,9 +21,18 @@ const ModalContainer = styled.div`
 
 const CentralSection = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%
+`;
+
+const ButtonsContainer = styled.div`
+    display: flex;
+    column-gap: 10px;
 `
 
-const ProjectsModal = ({ src, title }: { src: string, title: string }) => {
+const ProjectsModal = (props: ProjectsProps) => {
+  const { image, title, technologies, liveversion, source } = props;
   return (
     <ModalContainer>
       <Card
@@ -36,25 +49,31 @@ const ProjectsModal = ({ src, title }: { src: string, title: string }) => {
       >
         <CardMedia
           sx={{ height: 450, width: "100%", objectFit: "cover" }}
-          image={`../../src/assets/${src}`}
+          image={`../../src/assets/${image}`}
           title="tourify project"
         />
         <CentralSection>
-        <Typography
-          gutterBottom
-          variant="h3"
-          component="div"
-          sx={{
-            fontSize: "32px",
-            fontWeight: 600,
-            color: BLUE,
-            maxHeight: "auto",
-            flexGrow: 1,
-            textAlign: "center",
-          }}
-        >
-          {title}
-        </Typography>
+          <Typography
+            gutterBottom
+            variant="h4"
+            component="div"
+            sx={{
+              fontSize: "32px",
+              fontWeight: 600,
+              color: BLUE,
+              marginBottom: 0
+            }}
+          >
+            {title}
+          </Typography>
+          <ButtonsContainer>
+            <ModalActionButton
+              href={liveversion}
+              image={seeLive}
+              text="See live"
+            />
+            <ModalActionButton href={source} image={gitHub} text="See source" />
+          </ButtonsContainer>
         </CentralSection>
       </Card>
     </ModalContainer>

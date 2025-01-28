@@ -9,19 +9,20 @@ import ActionButton from "./Button";
 import Chips from "./Chips";
 import ProjectsModal from "./ProjectsModal";
 
-const ProjectCard = ({
-  src,
-  title,
-  technologies,
-}: {
-  src: string;
+export type ProjectsProps = {
+  image: string;
   title: string;
   technologies: string[];
-}) => {
+  liveversion: string;
+  source: string;
+};
+
+const ProjectCard = (props: ProjectsProps) => {
   const [isModalOpen, setIsModalOpen] = React.useState<boolean>(false);
+  const { image, title, technologies } = props;
   return (
     <>
-      {isModalOpen && <ProjectsModal src={src} title={title} />}
+      {isModalOpen && <ProjectsModal {...props} />}
       <Card
         sx={{
           width: 1,
@@ -34,7 +35,7 @@ const ProjectCard = ({
       >
         <CardMedia
           sx={{ height: 250, width: "100%", objectFit: "cover" }}
-          image={`../../src/assets/${src}`}
+          image={`../../src/assets/${image}`}
           title={`${title}-image`}
         />
         <CardContent sx={{ flexGrow: 1 }}>
@@ -58,7 +59,8 @@ const ProjectCard = ({
         <CardActions>
           <ActionButton
             text={"See project"}
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => setIsModalOpen(true)  
+            }
           />
         </CardActions>
       </Card>

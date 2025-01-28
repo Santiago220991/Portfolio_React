@@ -58,9 +58,11 @@ const Projects = () => {
             <Grid item xs={1} sm={1} md={1} key={index}>
               <ProjectCard
                 key={project.name}
-                src={project.image}
+                image={project.image}
                 title={project.name}
                 technologies={project.technologies}
+                liveversion={project.liveversion}
+                source={project.source}
               />
             </Grid>
           ))}

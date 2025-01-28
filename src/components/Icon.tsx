@@ -12,12 +12,12 @@ const IconWrapper = styled.img<{
 
 const Icon = ({
   src,
-  width,
-  height,
+  width = 50,
+  height = 50,
 }: {
   src: string;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
 }) => {
   return <IconWrapper src={src} $width={width} $height={height} />;
 };
