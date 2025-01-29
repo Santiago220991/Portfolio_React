@@ -59,10 +59,11 @@ const Projects = () => {
               <ProjectCard
                 key={project.name}
                 image={project.image}
-                title={project.name}
+                name={project.name}
                 technologies={project.technologies}
                 liveversion={project.liveversion}
                 source={project.source}
+                description={project.description}
               />
             </Grid>
           ))}

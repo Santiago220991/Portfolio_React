@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { BLUE, GRAY } from "../constants/colors";
 import { Card, CardMedia, Typography } from "@mui/material";
 import ModalActionButton from "./ModalActionButton";
-import { ProjectsProps } from "./ProjectCard";
 import seeLive from "/src/assets/see_live.png";
 import gitHub from "/src/assets/github_white_img.png";
+import Chips from "./Chips";
+import { Project } from "../models/project";
+import Icon from "./Icon";
+import quitImage from "../../src/assets/quit_img.png";
 
 const ModalContainer = styled.div`
   position: fixed;
@@ -23,16 +26,37 @@ const CentralSection = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%
+  width: 100%;
 `;
 
 const ButtonsContainer = styled.div`
-    display: flex;
-    column-gap: 10px;
-`
+  display: flex;
+  column-gap: 10px;
+`;
 
-const ProjectsModal = (props: ProjectsProps) => {
-  const { image, title, technologies, liveversion, source } = props;
+const Text = styled.p`
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+`;
+
+const MenuButton = styled.button`
+  border: none;
+  background-color: ${GRAY};
+  align-self: flex-end;
+  position: relative;
+  right: -758px;
+`;
+
+type ProjectsModalProps = {
+  project: Project;
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const ProjectsModal = ({ project, setIsModalOpen }: ProjectsModalProps) => {
+  const { image, name, technologies, liveversion, source, description } =
+    project;
   return (
     <ModalContainer>
       <Card
@@ -40,7 +64,6 @@ const ProjectsModal = (props: ProjectsProps) => {
           width: 1,
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
           maxWidth: { md: "800px" },
           marginTop: "8vh",
           marginBottom: "8vh",
@@ -51,7 +74,12 @@ const ProjectsModal = (props: ProjectsProps) => {
           sx={{ height: 450, width: "100%", objectFit: "cover" }}
           image={`../../src/assets/${image}`}
           title="tourify project"
-        />
+        >
+          <MenuButton onClick={() => setIsModalOpen(false)}>
+            <Icon src={quitImage} width={30} height={30} />
+          </MenuButton>
+        </CardMedia>
+
         <CentralSection>
           <Typography
             gutterBottom
@@ -61,10 +89,10 @@ const ProjectsModal = (props: ProjectsProps) => {
               fontSize: "32px",
               fontWeight: 600,
               color: BLUE,
-              marginBottom: 0
+              marginBottom: 0,
             }}
           >
-            {title}
+            {name}
           </Typography>
           <ButtonsContainer>
             <ModalActionButton
@@ -75,6 +103,12 @@ const ProjectsModal = (props: ProjectsProps) => {
             <ModalActionButton href={source} image={gitHub} text="See source" />
           </ButtonsContainer>
         </CentralSection>
+        <Chips
+          dataCollection={technologies}
+          backgroundColor={GRAY}
+          justifyContent="flex-start"
+        />
+        <Text>{description}</Text>
       </Card>
     </ModalContainer>
   );

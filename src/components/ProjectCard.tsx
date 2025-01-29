@@ -8,21 +8,14 @@ import { BLUE, GRAY } from "../constants/colors";
 import ActionButton from "./Button";
 import Chips from "./Chips";
 import ProjectsModal from "./ProjectsModal";
+import { Project } from "../models/project";
 
-export type ProjectsProps = {
-  image: string;
-  title: string;
-  technologies: string[];
-  liveversion: string;
-  source: string;
-};
-
-const ProjectCard = (props: ProjectsProps) => {
+const ProjectCard = (props: Project) => {
   const [isModalOpen, setIsModalOpen] = React.useState<boolean>(false);
-  const { image, title, technologies } = props;
+  const { image, name, technologies } = props;
   return (
     <>
-      {isModalOpen && <ProjectsModal {...props} />}
+      {isModalOpen && <ProjectsModal project={props} setIsModalOpen={setIsModalOpen} />}
       <Card
         sx={{
           width: 1,
@@ -36,7 +29,7 @@ const ProjectCard = (props: ProjectsProps) => {
         <CardMedia
           sx={{ height: 250, width: "100%", objectFit: "cover" }}
           image={`../../src/assets/${image}`}
-          title={`${title}-image`}
+          title={`${name}-image`}
         />
         <CardContent sx={{ flexGrow: 1 }}>
           <Typography
@@ -52,15 +45,18 @@ const ProjectCard = (props: ProjectsProps) => {
               textAlign: "center",
             }}
           >
-            {title}
+            {name}
           </Typography>
         </CardContent>
-        <Chips dataCollection={technologies} backgroundColor={GRAY} />
+        <Chips
+          dataCollection={technologies}
+          backgroundColor={GRAY}
+          padding={10}
+        />
         <CardActions>
           <ActionButton
             text={"See project"}
-            onClick={() => setIsModalOpen(true)  
-            }
+            onClick={() => setIsModalOpen(true)}
           />
         </CardActions>
       </Card>

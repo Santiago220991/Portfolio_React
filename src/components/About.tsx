@@ -37,6 +37,10 @@ const Paragraph = styled.p<{ $isMobile: boolean }>`
   margin-right: ${({ $isMobile }) => ($isMobile ? "0px" : "260px")};
 `;
 
+const AnchorTag = styled.a`
+  text-decoration: none;
+`;
+
 const About = () => {
   const { isMobile } = useIsMobile();
   return (
@@ -48,9 +52,9 @@ const About = () => {
         frameworks, and technologies and capable of adapting quickly and
         efficiently to different environments.
       </Paragraph>
-      <a href="https://docs.google.com/document/d/1hcnKl0GRtaVQHrg3o7-vnLDPPevXOuaPjQlm2s8q6GU/edit?usp=sharing">
-      <ActionButton text={"Get Resume"} />
-      </a>
+      <AnchorTag href="https://docs.google.com/document/d/1hcnKl0GRtaVQHrg3o7-vnLDPPevXOuaPjQlm2s8q6GU/edit?usp=sharing">
+        <ActionButton text={"Get Resume"} />
+      </AnchorTag>
     </AboutContainer>
   );
 };

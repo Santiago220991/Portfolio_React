@@ -5,10 +5,14 @@ const Chips = ({
   dataCollection,
   backgroundColor,
   textColor,
+  justifyContent,
+  padding,
 }: {
   dataCollection: string[];
   backgroundColor: string;
-  textColor?: string
+  textColor?: string;
+  justifyContent?: string;
+  padding?: number;
 }) => {
   return (
     <Stack
@@ -19,11 +23,11 @@ const Chips = ({
         marginBottom: "16px",
         display: "flex",
         flexWrap: "wrap",
-        justifyContent: "center",
+        justifyContent: justifyContent ? justifyContent : "center",
         rowGap: "8px",
         fontSize: "12px",
-        paddingLeft: "10px",
-        paddingRight: "10px",
+        paddingLeft: padding ? `${padding}px` : "0px",
+        paddingRight: padding ? `${padding}px` : "0px",
       }}
     >
       {dataCollection.map((dataCollection, index) => (
@@ -33,7 +37,7 @@ const Chips = ({
             borderRadius: 1,
             backgroundColor: backgroundColor,
             fontWeight: 600,
-             color: textColor? textColor : 'auto'
+            color: textColor ? textColor : "auto",
           }}
           label={dataCollection}
           size="medium"

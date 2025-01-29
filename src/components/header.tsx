@@ -23,7 +23,7 @@ const MenuOption = styled.a`
   text-decoration: none;
 `;
 
-const MenuButton = styled.button`
+export const MenuButton = styled.button`
   border: none;
   background-color: white;
   align-self: flex-end;
