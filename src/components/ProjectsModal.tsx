@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { BLUE, GRAY } from "../constants/colors";
-import { Card, CardMedia, Typography } from "@mui/material";
+import { Card, CardMedia, isMuiElement, Typography } from "@mui/material";
 import ModalActionButton from "./ModalActionButton";
 import seeLive from "/src/assets/see_live.png";
 import gitHub from "/src/assets/github_white_img.png";
@@ -9,6 +9,7 @@ import Chips from "./Chips";
 import { Project } from "../models/project";
 import Icon from "./Icon";
 import quitImage from "../../src/assets/quit_img.png";
+import useIsMobile from "../hooks/mobile";
 
 const ModalContainer = styled.div`
   position: fixed;
@@ -29,9 +30,11 @@ const CentralSection = styled.div`
   width: 100%;
 `;
 
-const ButtonsContainer = styled.div`
+const ButtonsContainer = styled.div<{ $isMobile?: boolean }>`
   display: flex;
   column-gap: 10px;
+  justify-content: ${({ $isMobile }) =>
+    $isMobile ? "space-between" : "flex-start"};
 `;
 
 const Text = styled.p`
@@ -46,8 +49,25 @@ const MenuButton = styled.button`
   background-color: ${GRAY};
   align-self: flex-end;
   position: relative;
-  right: -758px;
+  cursor: pointer;
 `;
+
+const RenderButtonsContainer = ({
+  liveversion,
+  source,
+  isMobile,
+}: {
+  liveversion: string;
+  source: string;
+  isMobile: boolean;
+}) => {
+  return (
+    <ButtonsContainer $isMobile={isMobile}>
+      <ModalActionButton href={liveversion} image={seeLive} text="See live" />
+      <ModalActionButton href={source} image={gitHub} text="See source" />
+    </ButtonsContainer>
+  );
+};
 
 type ProjectsModalProps = {
   project: Project;
@@ -55,6 +75,7 @@ type ProjectsModalProps = {
 };
 
 const ProjectsModal = ({ project, setIsModalOpen }: ProjectsModalProps) => {
+  const { isMobile } = useIsMobile();
   const { image, name, technologies, liveversion, source, description } =
     project;
   return (
@@ -65,13 +86,20 @@ const ProjectsModal = ({ project, setIsModalOpen }: ProjectsModalProps) => {
           display: "flex",
           flexDirection: "column",
           maxWidth: { md: "800px" },
-          marginTop: "8vh",
-          marginBottom: "8vh",
+          marginTop: isMobile ? "1vh" : "8vh",
+          marginBottom: isMobile ? "1vh" : "8vh",
           padding: "10px",
+          justifyContent: "center"
         }}
       >
         <CardMedia
-          sx={{ height: 450, width: "100%", objectFit: "cover" }}
+          sx={{
+            height: 450,
+            width: "100%",
+            objectFit: "cover",
+            display: "flex",
+            flexDirection: "column",
+          }}
           image={`../../src/assets/${image}`}
           title="tourify project"
         >
@@ -94,14 +122,8 @@ const ProjectsModal = ({ project, setIsModalOpen }: ProjectsModalProps) => {
           >
             {name}
           </Typography>
-          <ButtonsContainer>
-            <ModalActionButton
-              href={liveversion}
-              image={seeLive}
-              text="See live"
-            />
-            <ModalActionButton href={source} image={gitHub} text="See source" />
-          </ButtonsContainer>
+          {!isMobile &&
+            RenderButtonsContainer({ liveversion, source, isMobile })}
         </CentralSection>
         <Chips
           dataCollection={technologies}
@@ -109,6 +131,7 @@ const ProjectsModal = ({ project, setIsModalOpen }: ProjectsModalProps) => {
           justifyContent="flex-start"
         />
         <Text>{description}</Text>
+        {isMobile && RenderButtonsContainer({ liveversion, source, isMobile })}
       </Card>
     </ModalContainer>
   );

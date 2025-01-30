@@ -69,6 +69,7 @@ const Submit = styled.input`
   &:hover {
     background-color: ${HOVERGREEN};
   }
+  cursor: pointer;
 `;
 
 const Paragraph = styled.p`
