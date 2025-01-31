@@ -85,7 +85,7 @@ const ProjectsModal = ({ project, setIsModalOpen }: ProjectsModalProps) => {
           width: 1,
           display: "flex",
           flexDirection: "column",
-          maxWidth: { md: "800px" },
+          maxWidth: { md: "800px", sm:"94%", xs: "90%" },
           marginTop: isMobile ? "1vh" : "8vh",
           marginBottom: isMobile ? "1vh" : "8vh",
           padding: "10px",
