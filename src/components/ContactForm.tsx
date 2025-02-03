@@ -94,7 +94,6 @@ const schema = yup
 type FormData = yup.InferType<typeof schema>;
 
 const ContactForm = () => {
-  console.log(FORM_KEY)
   const {
     register,
     handleSubmit,
