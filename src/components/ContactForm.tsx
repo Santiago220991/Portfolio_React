@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { GREEN, HOVERGREEN } from "../constants/colors";
 
+const FORM_KEY = import.meta.env.VITE_FORM_KEY;
+
 const Form = styled.form`
   width: 100%;
   display: flex;
@@ -92,6 +94,7 @@ const schema = yup
 type FormData = yup.InferType<typeof schema>;
 
 const ContactForm = () => {
+  console.log(FORM_KEY)
   const {
     register,
     handleSubmit,
@@ -123,7 +126,7 @@ const ContactForm = () => {
     localStorage.setItem("session", JSON.stringify(formData));
   };
 
-  const onSubmit = useSubmit("xyyopqgn", {
+  const onSubmit = useSubmit(FORM_KEY ? FORM_KEY : "", {
     onSuccess: () => {
       setTimeout(() => {
         reset(undefined, { keepDirtyValues: true });

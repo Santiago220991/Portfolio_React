@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { BLUE, GRAY } from "../constants/colors";
-import { Card, CardMedia, isMuiElement, Typography } from "@mui/material";
+import { Card, CardMedia, Typography } from "@mui/material";
 import ModalActionButton from "./ModalActionButton";
 import seeLive from "/src/assets/see_live.png";
 import gitHub from "/src/assets/github_white_img.png";
