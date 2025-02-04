@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { BLUE, GREEN } from "../constants/colors";
 import ProjectCard from "./ProjectCard";

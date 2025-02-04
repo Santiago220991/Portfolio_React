@@ -1,4 +1,3 @@
-import React from "react";
 import linkedInImage from "../../src/assets/linkedin_img.png";
 import githubImage from "../../src/assets/github_img.png";
 import styled from "styled-components";

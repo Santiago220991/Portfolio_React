@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import menuImage from "../../src/assets/menu_img.png";
 import quitImage from "../../src/assets/quit_img.png";

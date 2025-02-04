@@ -1,4 +1,3 @@
-import React from "react";
 import { styled, keyframes } from "styled-components";
 import MediaIcons from "./MediaIcons";
 import Icon from "./Icon";

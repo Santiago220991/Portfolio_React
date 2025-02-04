@@ -1,4 +1,3 @@
-import React from "react";
 import SkillCard from "./SkillCard";
 import styled from "styled-components";
 import useSkillsContext from "../hooks/skills";

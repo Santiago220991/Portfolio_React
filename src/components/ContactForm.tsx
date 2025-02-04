@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useSubmit } from "@formspree/react";
 import styled from "styled-components";
 import * as yup from "yup";
