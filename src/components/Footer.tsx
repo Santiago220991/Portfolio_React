@@ -2,6 +2,7 @@ import styled from "styled-components";
 import MediaIcons from "./MediaIcons";
 import { BLUE } from "../constants/colors";
 import useIsMobile from "../hooks/mobile";
+import contactImage from "../../src/assets/contact_img.png";
 
 const FooterContainer = styled.footer<{ $isMobile: boolean }>`
   display: flex;
@@ -9,7 +10,7 @@ const FooterContainer = styled.footer<{ $isMobile: boolean }>`
   align-items: center;
   font-family: Arial, Helvetica, sans-serif;
   background-image: ${({ $isMobile }) =>
-    $isMobile ? `url("../../src/assets/contact_img.png")` : "none"};
+    $isMobile ? `url(${contactImage})` : "none"};
   background-repeat: no-repeat;
   background-size: 20%;
   background-position: right 100% ;

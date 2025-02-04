@@ -28,7 +28,7 @@ const ProjectCard = (props: Project) => {
       >
         <CardMedia
           sx={{ height: 250, width: "100%", objectFit: "cover" }}
-          image={`../../src/assets/${image}`}
+          image={`/assets/${image}`}
           title={`${name}-image`}
         />
         <CardContent sx={{ flexGrow: 1 }}>

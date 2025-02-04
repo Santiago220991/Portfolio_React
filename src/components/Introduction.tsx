@@ -4,6 +4,7 @@ import Icon from "./Icon";
 import DownArrow from "../../src/assets/down_arrow_img.png";
 import { BLUE, LIGHTGREEN } from "../constants/colors";
 import useIsMobile from "../hooks/mobile";
+import headerImage from "../../src/assets/header_img.png";
 
 const IntroductionContainer = styled.section<{ $isMobile?: boolean }>`
   font-family: Arial, Helvetica, sans-serif;
@@ -11,7 +12,7 @@ const IntroductionContainer = styled.section<{ $isMobile?: boolean }>`
   flex-direction: column;
   align-items: center;
   background-image: ${({ $isMobile }) =>
-    $isMobile ? `url("../../src/assets/header_img.png")` : "none"};
+    $isMobile ? `url(${headerImage})` : "none"};
   background-repeat: no-repeat;
   background-size: 100%;
   padding-bottom: ${({ $isMobile }) => ($isMobile ? "20px" : "60px")};

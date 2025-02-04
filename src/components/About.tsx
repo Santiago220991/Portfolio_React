@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { BLUE } from "../constants/colors";
 import ActionButton from "./Button";
 import useIsMobile from "../hooks/mobile";
+import aboutMeDesktopImage from "../../src/assets/about_me_desktop_img.png";
 
 const AboutContainer = styled.section<{ $isMobile?: boolean }>`
   font-family: Arial, Helvetica, sans-serif;
@@ -10,7 +11,7 @@ const AboutContainer = styled.section<{ $isMobile?: boolean }>`
   align-items: center;
   margin-top: 64px;
   background-image: ${({ $isMobile }) =>
-    $isMobile ? "none" : `url("../../src/assets/about_me_desktop_img.png")`};
+    $isMobile ? "none" : `url(${aboutMeDesktopImage})`};
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
