@@ -100,7 +100,7 @@ const ProjectsModal = ({ project, setIsModalOpen }: ProjectsModalProps) => {
             display: "flex",
             flexDirection: "column",
           }}
-          image={`../../src/assets/${image}`}
+          image={`/assets/${image}`}
           title="tourify project"
         >
           <MenuButton onClick={() => setIsModalOpen(false)}>
