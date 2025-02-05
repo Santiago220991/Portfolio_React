@@ -85,9 +85,9 @@ const Paragraph = styled.p`
 
 const schema = yup
   .object({
-    name: yup.string().required(),
-    email: yup.string().email().required(),
-    message: yup.string().required(),
+    Name: yup.string().required(),
+    Email: yup.string().email().required(),
+    Message: yup.string().required(),
   })
   .required();
 
@@ -108,9 +108,9 @@ const ContactForm = () => {
     const data = localStorage.getItem("session");
     if (data) {
       const savedData: FormData = JSON.parse(data);
-      setValue("name", savedData.name);
-      setValue("email", savedData.email);
-      setValue("message", savedData.message);
+      setValue("Name", savedData.Name);
+      setValue("Email", savedData.Email);
+      setValue("Message", savedData.Message);
     }
   }, [setValue]);
 
@@ -138,22 +138,22 @@ const ContactForm = () => {
       {isSubmitSuccessful && <h3>Your message has been sent successfully!</h3>}
       <Input
         placeholder="Full Name"
-        {...register("name")}
-        onChange={(e) => handleInputChange("name", e.target.value)}
+        {...register("Name")}
+        onChange={(e) => handleInputChange("Name", e.target.value)}
       />
-      <Paragraph>{errors.name?.message}</Paragraph>
+      <Paragraph>{errors.Name?.message}</Paragraph>
       <Input
         placeholder="Email Address"
-        {...register("email")}
-        onChange={(e) => handleInputChange("email", e.target.value)}
+        {...register("Email")}
+        onChange={(e) => handleInputChange("Email", e.target.value)}
       />
-      <Paragraph>{errors.email?.message}</Paragraph>
+      <Paragraph>{errors.Email?.message}</Paragraph>
       <TextArea
         placeholder="Enter text here"
-        {...register("message")}
-        onChange={(e) => handleInputChange("message", e.target.value)}
+        {...register("Message")}
+        onChange={(e) => handleInputChange("Message", e.target.value)}
       />
-      <Paragraph>{errors.message?.message}</Paragraph>
+      <Paragraph>{errors.Message?.message}</Paragraph>
       <Submit
         type="submit"
         value={`${isSubmitting ? "Submitting" : "Get in Touch"}`}
