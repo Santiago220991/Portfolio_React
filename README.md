@@ -6,7 +6,7 @@
 - Skills
 - Contact me section.
 
-This project was made with TypeScript, React and Material-UI. It also has a mobile version.
+This project was made with TypeScript, React, and Material-UI. It also has a mobile version.
 
 
 ![Screenshot from 2022-10-19 23-31-35](https://user-images.githubusercontent.com/98363075/196856979-c9ed583a-ad62-4078-be26-85a90c47a7c2.png)
@@ -20,7 +20,7 @@ This project was made with TypeScript, React and Material-UI. It also has a mobi
 
 ## Live Demo
 
-[Portfolio Live Demo Link ](https://santiago220991.github.io/Portfolio/)
+[Portfolio Live Demo Link ](https://portfolio-santiago-cardenas.netlify.app/)
 
 ## Getting Started
 
