@@ -15,7 +15,7 @@ const data = [
         "This app is a mobile web application where you can manage your budget: you have a list of transactions associated with a category. So that you can see how much money you spent and on what.",
       image: "budget_calculator.png",
       technologies: ["HTML", "CSS", "Ruby on Rails", "RSpec", "PostgreSQL"],
-      liveversion: "https://budget-calculator-production.up.railway.app/",
+      liveversion: "https://budget-app-z0bt.onrender.com/",
       source: "https://github.com/Santiago220991/Budget-App",
     },
   
